@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-lua-plugins
+  namespace: ingress-nginx
+data:
+  main.lua: |
+    -- plugins/redirect_404/main.lua
+    local _M = {}
+    function _M.handle()
+      -- This will send a 302 redirect to google.com
+      -- Using ngx.redirect in a content_by_lua_block is safe here.
+      ngx.redirect("https://www.google.com", 302)
+    end
+    return _M

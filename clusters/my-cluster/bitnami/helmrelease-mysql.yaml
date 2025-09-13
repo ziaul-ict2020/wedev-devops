@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mysql
+  namespace: wordpress
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: mysql
+      version: "9.4.6"
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  values:
+    auth:
+      existingSecret: mysql-credentials
+      existingSecretPasswordKey: MYSQL_PASSWORD
+      existingSecretUsernameKey: MYSQL_USER
+      existingSecretDatabaseKey: MYSQL_DATABASE
+      rootPassword: ""

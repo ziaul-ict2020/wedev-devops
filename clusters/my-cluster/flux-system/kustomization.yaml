@@ -3,3 +3,16 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
+- ingress/helmrepo-ingress-nginx.yaml
+- ingress/helmrelease-ingress-nginx.yaml
+- ingress/ingress-lua-plugins.yaml
+- metallb/metallb-config.yaml
+- bitnami/helmrepo-bitnami.yaml
+- bitnami/helmrelease-mysql.yaml
+- bitnami/mysql-secret.yaml
+- wordpress/helmrelease-wordpress.yaml
+- monitoring/helmrepo-prometheus.yaml
+- monitoring/helmrepo-grafana.yaml
+- monitoring/helmrelease-kube-prometheus-stack.yaml
+- monitoring/helmrelease-loki-stack.yaml
+- monitoring/grafana-dashboards/wordpress-logs-dashboard.json

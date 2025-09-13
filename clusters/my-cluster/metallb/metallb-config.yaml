@@ -1,0 +1,22 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: default-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 172.16.200.64/26  # Network Address
+  #autoAssign: false   # Auto Assign Off
+  autoAssign: true
+  avoidBuggyIPs: true
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: advert
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - default-pool
+  interfaces:
+  - eth1
